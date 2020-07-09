@@ -3,27 +3,37 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		307B5C4124B3BEB000FA5319 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B5C4024B3BEB000FA5319 /* AppDelegate.swift */; };
 		307B5C4324B3BEB000FA5319 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B5C4224B3BEB000FA5319 /* SceneDelegate.swift */; };
-		307B5C4524B3BEB000FA5319 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B5C4424B3BEB000FA5319 /* ViewController.swift */; };
+		307B5C4524B3BEB000FA5319 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B5C4424B3BEB000FA5319 /* MainViewController.swift */; };
 		307B5C4824B3BEB000FA5319 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 307B5C4624B3BEB000FA5319 /* Main.storyboard */; };
 		307B5C4A24B3BEB100FA5319 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 307B5C4924B3BEB100FA5319 /* Assets.xcassets */; };
 		307B5C4D24B3BEB100FA5319 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 307B5C4B24B3BEB100FA5319 /* LaunchScreen.storyboard */; };
+		30A0175524B714FF0000B9FF /* TeamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A0175424B714FF0000B9FF /* TeamTableViewCell.swift */; };
+		30B8AFCA24B3E1820051931F /* AWSService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B8AFC924B3E1820051931F /* AWSService.swift */; };
+		30C3016F24B7A698001509C7 /* VersionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C3016E24B7A698001509C7 /* VersionViewController.swift */; };
+		E54F17499404ABFA14EF1AE4 /* Pods_TestAWS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976B5215EA6F464571D593C /* Pods_TestAWS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		307B5C3D24B3BEB000FA5319 /* TestAWS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestAWS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		307B5C4024B3BEB000FA5319 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		307B5C4224B3BEB000FA5319 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		307B5C4424B3BEB000FA5319 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		307B5C4424B3BEB000FA5319 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		307B5C4724B3BEB000FA5319 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		307B5C4924B3BEB100FA5319 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		307B5C4C24B3BEB100FA5319 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		307B5C4E24B3BEB100FA5319 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30A0175424B714FF0000B9FF /* TeamTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamTableViewCell.swift; sourceTree = "<group>"; };
+		30B8AFC924B3E1820051931F /* AWSService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSService.swift; sourceTree = "<group>"; };
+		30C3016E24B7A698001509C7 /* VersionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionViewController.swift; sourceTree = "<group>"; };
+		5976B5215EA6F464571D593C /* Pods_TestAWS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestAWS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A28826CEE3B539D499831CA6 /* Pods-TestAWS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestAWS.debug.xcconfig"; path = "Target Support Files/Pods-TestAWS/Pods-TestAWS.debug.xcconfig"; sourceTree = "<group>"; };
+		E7019484C2B9B38D906404A1 /* Pods-TestAWS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestAWS.release.xcconfig"; path = "Target Support Files/Pods-TestAWS/Pods-TestAWS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E54F17499404ABFA14EF1AE4 /* Pods_TestAWS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +53,8 @@
 			children = (
 				307B5C3F24B3BEB000FA5319 /* TestAWS */,
 				307B5C3E24B3BEB000FA5319 /* Products */,
+				B0869BB2A0A1C08C6E102C4D /* Pods */,
+				6701F7921CD8318D56E6DD00 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +69,51 @@
 		307B5C3F24B3BEB000FA5319 /* TestAWS */ = {
 			isa = PBXGroup;
 			children = (
+				30B8AFC824B3E1710051931F /* Services */,
 				307B5C4024B3BEB000FA5319 /* AppDelegate.swift */,
-				307B5C4224B3BEB000FA5319 /* SceneDelegate.swift */,
-				307B5C4424B3BEB000FA5319 /* ViewController.swift */,
+				30A0175324B712DD0000B9FF /* MainModule */,
 				307B5C4624B3BEB000FA5319 /* Main.storyboard */,
 				307B5C4924B3BEB100FA5319 /* Assets.xcassets */,
 				307B5C4B24B3BEB100FA5319 /* LaunchScreen.storyboard */,
 				307B5C4E24B3BEB100FA5319 /* Info.plist */,
 			);
 			path = TestAWS;
+			sourceTree = "<group>";
+		};
+		30A0175324B712DD0000B9FF /* MainModule */ = {
+			isa = PBXGroup;
+			children = (
+				307B5C4424B3BEB000FA5319 /* MainViewController.swift */,
+				30A0175424B714FF0000B9FF /* TeamTableViewCell.swift */,
+				30C3016E24B7A698001509C7 /* VersionViewController.swift */,
+				307B5C4224B3BEB000FA5319 /* SceneDelegate.swift */,
+			);
+			path = MainModule;
+			sourceTree = "<group>";
+		};
+		30B8AFC824B3E1710051931F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				30B8AFC924B3E1820051931F /* AWSService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		6701F7921CD8318D56E6DD00 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5976B5215EA6F464571D593C /* Pods_TestAWS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B0869BB2A0A1C08C6E102C4D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A28826CEE3B539D499831CA6 /* Pods-TestAWS.debug.xcconfig */,
+				E7019484C2B9B38D906404A1 /* Pods-TestAWS.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +123,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 307B5C5124B3BEB100FA5319 /* Build configuration list for PBXNativeTarget "TestAWS" */;
 			buildPhases = (
+				31D6542AAABE466C80E66C1A /* [CP] Check Pods Manifest.lock */,
 				307B5C3924B3BEB000FA5319 /* Sources */,
 				307B5C3A24B3BEB000FA5319 /* Frameworks */,
 				307B5C3B24B3BEB000FA5319 /* Resources */,
+				D38614723E731BA5E138F393 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,14 +184,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		31D6542AAABE466C80E66C1A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TestAWS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D38614723E731BA5E138F393 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TestAWS/Pods-TestAWS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TestAWS/Pods-TestAWS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TestAWS/Pods-TestAWS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		307B5C3924B3BEB000FA5319 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				307B5C4524B3BEB000FA5319 /* ViewController.swift in Sources */,
+				307B5C4524B3BEB000FA5319 /* MainViewController.swift in Sources */,
 				307B5C4124B3BEB000FA5319 /* AppDelegate.swift in Sources */,
 				307B5C4324B3BEB000FA5319 /* SceneDelegate.swift in Sources */,
+				30C3016F24B7A698001509C7 /* VersionViewController.swift in Sources */,
+				30A0175524B714FF0000B9FF /* TeamTableViewCell.swift in Sources */,
+				30B8AFCA24B3E1820051931F /* AWSService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +378,7 @@
 		};
 		307B5C5224B3BEB100FA5319 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A28826CEE3B539D499831CA6 /* Pods-TestAWS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +397,7 @@
 		};
 		307B5C5324B3BEB100FA5319 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7019484C2B9B38D906404A1 /* Pods-TestAWS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
