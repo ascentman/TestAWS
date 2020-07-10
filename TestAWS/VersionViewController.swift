@@ -20,6 +20,7 @@ final class VersionViewController: UIViewController {
 
     private var majorVersion: Version = .defaultValue
     private var isFotaEnabled: Bool = false
+    private var teamId = ""
 
     var onUpdate: (Version, Bool) -> () = {_,_ in }
 
@@ -28,7 +29,7 @@ final class VersionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = majorVersion.id
+        title = teamId
         majorVersionLabel.text = majorVersion.id
         fotaEnabledSwitch.isOn = isFotaEnabled
         versionTextField.text = majorVersion.version
@@ -45,9 +46,10 @@ final class VersionViewController: UIViewController {
         onUpdate(majorVersion, isFotaEnabled)
     }
 
-    func setup(version: Version, isFotaEnabled: Bool) {
+    func setup(version: Version, isFotaEnabled: Bool, teamId: Int) {
         self.majorVersion = version
         self.isFotaEnabled = isFotaEnabled
+        self.teamId = String(teamId)
     }
 
     @IBAction private func switchDidToggle(_ sender: Any) {

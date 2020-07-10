@@ -40,6 +40,7 @@ final class AWSService {
                                         }
                                         do {
                                             let result = try JSONDecoder().decode(FotaSettings.self, from: data!)
+                                            // MARK - [DEBUG]
                                             print(result)
                                             onCompletion?(result)
                                         } catch {
@@ -55,7 +56,8 @@ final class AWSService {
             let jsonString = String(data: jsonData, encoding: .utf8)
 
             guard let text = jsonString else { return }
-
+            // MARK - [DEBUG]
+            print(text)
             let filename = getDocumentsDirectory().appendingPathComponent("FotaSettings-Volodymyr-Rykhva.json")
             transferUtility.uploadFile(filename,
                                        bucket: Const.bucketName,

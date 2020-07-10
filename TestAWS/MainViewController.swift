@@ -58,7 +58,8 @@ extension MainTableViewController: SettingsDataProviderDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "VersionViewController") as? VersionViewController
         viewController?.setup(version: dataProvider.props.versionListByTeams[index].majorVersion,
-                              isFotaEnabled: dataProvider.props.versionListByTeams[index].fotaEnabled)
+                              isFotaEnabled: dataProvider.props.versionListByTeams[index].fotaEnabled,
+                              teamId: dataProvider.props.versionListByTeams[index].id)
         viewController?.onUpdate = { [weak self] (majorVersion, isFotaEnabled) in
             self?.dataProvider.props.versionListByTeams[index].majorVersion = majorVersion
             self?.dataProvider.props.versionListByTeams[index].fotaEnabled = isFotaEnabled
