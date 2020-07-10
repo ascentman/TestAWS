@@ -19,6 +19,7 @@ final class MainTableViewController: UITableViewController {
 
         title = "Teams"
         tableView.tableFooterView = UIView(frame: .zero)
+        addNavigationBarItem()
         tableView.refreshControl?.addTarget(self, action: #selector(onRefresh), for: .valueChanged)
 
         dataProvider.delegate = self
@@ -30,6 +31,24 @@ final class MainTableViewController: UITableViewController {
     @objc private func onRefresh() {
         dataProvider.load()
         tableView.refreshControl?.endRefreshing()
+    }
+
+    private func addNavigationBarItem() {
+        let rightBarButton = UIBarButtonItem(title: "Update",
+                                             style: .plain,
+                                             target: self,
+                                             action: #selector(onUpdateDidTouch))
+        navigationItem.rightBarButtonItem = rightBarButton
+    }
+
+    @objc private func onUpdateDidTouch(_ sender: UIBarButtonItem!) {
+        dataProvider.update(onCompletion: {
+            let alert = UIAlertController(title: "AWS", message: "You have successfully uploaded FotaSettings-Volodymyr-Rykhva.json file", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            DispatchQueue.main.async { [weak self] in
+                self?.present(alert, animated: true, completion: nil)
+            }
+        })
     }
 }
 
@@ -51,9 +70,9 @@ extension MainTableViewController: SettingsDataProviderDelegate {
     }
 
     func render() {
-        guard isViewLoaded else { return }
-
-        tableView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.reloadData()
+        }
     }
 }
 

@@ -25,6 +25,11 @@ final class SettingsDataProvider: NSObject {
             self?.delegate?.render()
         })
     }
+
+    func update(onCompletion: @escaping () -> Void) {
+        let fotaSettings = FotaSettings(props: props)
+        awsService.upload(newSettings: fotaSettings, onCompletion: onCompletion)
+    }
 }
 
 extension SettingsDataProvider {
@@ -67,6 +72,28 @@ extension SettingsDataProvider.Props {
                                    majorVersion: teamVersion))
         }
         self.versionListByTeams = teamsArray
+    }
+}
+
+extension FotaSettings {
+    init(props: SettingsDataProvider.Props) {
+        let teamsDict = props.versionListByTeams.reduce([Int: FotaSettings.Team]()) { (dict, team) -> [Int : FotaSettings.Team] in
+            var dict = dict
+            dict[team.id] = FotaSettings.Team(team: team)
+            return dict
+        }
+        self.versionsListByTeams = teamsDict
+    }
+}
+
+extension FotaSettings.Team {
+    init(team: SettingsDataProvider.Props.Team) {
+        let hwVersion = FotaSettings.Team.HWVersion(version: team.majorVersion.version,
+                                                    binFile: team.majorVersion.binFile,
+                                                    jsonFile: team.majorVersion.jsonFile)
+        self.version = team.majorVersion.id
+        self.fotaEnabled = team.fotaEnabled
+        self.info = hwVersion
     }
 }
 

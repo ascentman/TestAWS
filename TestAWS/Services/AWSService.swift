@@ -16,7 +16,7 @@ protocol AWSServiceDelegate: class {
 final class AWSService {
     private enum Const {
         static let accessKey = "AKIA5JJ3DDVW7ZQN6BH6"
-        static let secretKey = "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"
+        static let secretKey = "Ri1aAASxG/SPKnhVR5Jea9sBycMquHJ6GF3Up8Iy"
         static let bucketName = "pm-interviews"
         static let sotaFileName = "FotaSettings.json"
     }
@@ -32,35 +32,62 @@ final class AWSService {
     }
 
     func download(onCompletion: ((FotaSettings) -> Void)?) {
-        let data = json.data(using: .utf8)
-        do {
-            let result = try JSONDecoder().decode(FotaSettings.self, from: data!)
-            onCompletion?(result)
-        } catch(let error) {
-            print(error)
+        transferUtility.downloadData(fromBucket: Const.bucketName,
+                                     key: Const.sotaFileName,
+                                     expression: nil) { (task, url, data, error) in
+                                        if let error = error {
+                                            debugPrint(error)
+                                        }
+                                        do {
+                                            let result = try JSONDecoder().decode(FotaSettings.self, from: data!)
+                                            print(result)
+                                            onCompletion?(result)
+                                        } catch {
+                                            debugPrint(error)
+                                        }
         }
-//        transferUtility.downloadData(fromBucket: Const.bucketName,
-//                                     key: Const.sotaFileName,
-//                                     expression: nil) { (task, url, data, error) in
-//                                        if let error = error {
-//                                            debugPrint(error)
-//                                        }
-//                                        do {
-//                                            let result = try JSONDecoder().decode(FotaSettings.self, from: data!)
-//                                            print(result)
-//                                            self.delegate?.dataLoaded(fotaSettings: result)
-//                                        } catch {
-//                                            debugPrint(error)
-//                                        }
-//        }
+    }
+
+    func upload(newSettings: FotaSettings,onCompletion: @escaping () -> Void) {
+        do {
+            let jsonEncoder = JSONEncoder()
+            let jsonData = try jsonEncoder.encode(newSettings)
+            let jsonString = String(data: jsonData, encoding: .utf8)
+
+            guard let text = jsonString else { return }
+
+            let filename = getDocumentsDirectory().appendingPathComponent("FotaSettings-Volodymyr-Rykhva.json")
+            transferUtility.uploadFile(filename,
+                                       bucket: Const.bucketName,
+                                       key: Const.sotaFileName,
+                                       contentType: "json",
+                                       expression: nil) { task, error in
+                                        if let error = error {
+                                            debugPrint(error)
+                                        }
+                                        onCompletion()
+            }
+            do {
+                try text.write(to: filename, atomically: true, encoding: .utf8)
+            } catch {
+                debugPrint(error)
+            }
+        } catch {
+            debugPrint(error)
+        }
+    }
+
+    private func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
     }
 }
 
-struct FotaSettings: Decodable {
-    let versionsListByTeams: [Int: Team]; struct Team: Decodable {
+struct FotaSettings: Codable {
+    let versionsListByTeams: [Int: Team]; struct Team: Codable {
         var fotaEnabled: Bool
         var version: String
-        var info: HWVersion?; struct HWVersion: Decodable {
+        var info: HWVersion?; struct HWVersion: Codable {
             let version: String
             let binFile: String
             let jsonFile: String
@@ -82,6 +109,16 @@ struct FotaSettings: Decodable {
                 }
             }
         }
+
+        func encode(to encoder: Encoder) throws {
+            var container = encoder.container(keyedBy: UnknownVersionCodingKey.self)
+            if let fotaKey = UnknownVersionCodingKey(stringValue: "fotaEnabled") {
+                try container.encode(fotaEnabled, forKey: fotaKey)
+            }
+            if let versionKey = UnknownVersionCodingKey(stringValue: version) {
+                try container.encode(info, forKey: versionKey)
+            }
+        }
     }
 }
 
@@ -93,60 +130,3 @@ struct UnknownVersionCodingKey: CodingKey {
     init?(intValue: Int) {return nil }
     var intValue: Int? { return nil }
 }
-
-let json = """
-{
-   "fotaEnabled  ":true,
-   "fotaSpeed  ":0.040,
-   "fotaBleAvailableConnections  ":2,
-   "versionsListByHWVersion  ":{
-      "V1.0.5":{
-         "version":"v1.1.0_3.3.1  ",
-         "binFile":"https://pm-interviews.s3.amazonaws.com/uSensor_v1_STM32_3_3_1_compressed.bin  ",
-         "jsonFile":"https://pm-interviews.s3.amazonaws.com/uSensor_v1_STM32_3_3_1_compressed.json  "
-      }
-   },
-   "versionsListByTeams":{
-      "1155":{
-         "fotaEnabled":true,
-         "V1.0.4":{
-            "version":"v1.1.0_3.2.1  ",
-            "binFile":"https://pm-interviews.s3.amazonaws.com/uSensor_v1_STM32_3_2_1_compressed.bin  ",
-            "jsonFile":"https://pm-interviews.s3.amazonaws.com/uSensor_v1_STM32_3_2_1_compressed.json  "
-         }
-      },
-      "675":{
-         "fotaEnabled  ":true,
-         "V1.0.5":{
-            "version":"v1.1.0_3.3.1  ",
-            "binFile":"https://pm-interviews.s3.amazonaws.com/uSensor_v1_STM32_3_3_1_compressed.bin  ",
-            "jsonFile":"https://pm-interviews.s3.amazonaws.com/uSensor_v1_STM32_3_3_1_compressed.json  "
-         }
-      },
-      "1154":{
-         "fotaEnabled  ":true,
-         "V1.0.5":{
-            "version":"v1.1.0_3.3.1  ",
-            "binFile":"https://pm-interviews.s3.amazonaws.com/uSensor_v1_STM32_3_3_1_compressed.bin  ",
-            "jsonFile":"https://pm-interviews.s3.amazonaws.com/uSensor_v1_STM32_3_3_1_compressed.json  "
-         }
-      },
-      "1163":{
-         "fotaEnabled  ":true,
-         "V1.0.6":{
-            "version":"v1.1.0_3.3.1  ",
-            "binFile":"https://pm-interviews.s3.amazonaws.com/uSensor_v1_STM32_3_3_1_compressed.bin  ",
-            "jsonFile":"https://pm-interviews.s3.amazonaws.com/uSensor_v1_STM32_3_3_1_compressed.json  "
-         }
-      },
-      "1150":{
-         "fotaEnabled":true,
-         "V1.0.5":{
-            "version":"v1.1.0_3.2.1  ",
-            "binFile":"https://pm-interviews.s3.amazonaws.com/uSensor_v1_STM32_3_2_1_compressed.bin  ",
-            "jsonFile":"https://pm-interviews.s3.amazonaws.com/uSensor_v1_STM32_3_2_1_compressed.json  "
-         }
-      }
-   }
-}
-"""
