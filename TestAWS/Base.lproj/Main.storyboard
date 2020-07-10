@@ -77,31 +77,37 @@
                                     <outlet property="fotaEnabledSwitch" destination="Y5O-Jh-7M1" id="FJf-q8-67f"/>
                                     <outlet property="majorVersionLabel" destination="hKG-RF-Q72" id="kWu-ez-ClB"/>
                                     <outlet property="teamIdLabel" destination="Kg7-tB-t0c" id="eWz-3a-EoF"/>
-                                    <segue destination="fbf-WC-Ndo" kind="show" identifier="showDetails_segue" id="CcT-q6-0Kq"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="AvO-WS-WEG" id="szq-MC-b9U"/>
-                            <outlet property="delegate" destination="AvO-WS-WEG" id="ErD-YM-v6E"/>
+                            <outlet property="dataSource" destination="8Ow-F7-TMm" id="M6Z-a4-Q8c"/>
+                            <outlet property="delegate" destination="8Ow-F7-TMm" id="0Qq-M4-st4"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="IlR-0M-5rM"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="c1y-zd-eh2">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
+                    <connections>
+                        <outlet property="dataProvider" destination="8Ow-F7-TMm" id="w7B-2g-VGE"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zpb-g5-U7F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <customObject id="8Ow-F7-TMm" customClass="SettingsDataProvider" customModule="TestAWS" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="660.86956521739137" y="49.553571428571423"/>
         </scene>
         <!--Version View Controller-->
         <scene sceneID="DQl-3d-1o4">
             <objects>
-                <viewController id="fbf-WC-Ndo" customClass="VersionViewController" customModule="TestAWS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VersionViewController" id="fbf-WC-Ndo" customClass="VersionViewController" customModule="TestAWS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="z3J-BB-47W">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bAP-HL-LI7">
-                                <rect key="frame" x="20" y="128" width="374" height="232.5"/>
+                                <rect key="frame" x="20" y="84" width="374" height="232.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wQF-h1-7j2">
                                         <rect key="frame" x="0.0" y="0.0" width="156" height="19.5"/>

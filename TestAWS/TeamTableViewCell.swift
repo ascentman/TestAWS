@@ -10,7 +10,7 @@ import UIKit
 
 final class TeamTableViewCell: UITableViewCell {
 
-    typealias Team = MainTableViewController.Props.Team
+    typealias Team =  SettingsDataProvider.Props.Team
 
     @IBOutlet private weak var teamIdLabel: UILabel!
     @IBOutlet private weak var majorVersionLabel: UILabel!

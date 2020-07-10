@@ -16,6 +16,7 @@
 		30A0175524B714FF0000B9FF /* TeamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A0175424B714FF0000B9FF /* TeamTableViewCell.swift */; };
 		30B8AFCA24B3E1820051931F /* AWSService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B8AFC924B3E1820051931F /* AWSService.swift */; };
 		30C3016F24B7A698001509C7 /* VersionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C3016E24B7A698001509C7 /* VersionViewController.swift */; };
+		30C3017124B7E33A001509C7 /* SettingsDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C3017024B7E33A001509C7 /* SettingsDataProvider.swift */; };
 		E54F17499404ABFA14EF1AE4 /* Pods_TestAWS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976B5215EA6F464571D593C /* Pods_TestAWS.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		30A0175424B714FF0000B9FF /* TeamTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamTableViewCell.swift; sourceTree = "<group>"; };
 		30B8AFC924B3E1820051931F /* AWSService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSService.swift; sourceTree = "<group>"; };
 		30C3016E24B7A698001509C7 /* VersionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionViewController.swift; sourceTree = "<group>"; };
+		30C3017024B7E33A001509C7 /* SettingsDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDataProvider.swift; sourceTree = "<group>"; };
 		5976B5215EA6F464571D593C /* Pods_TestAWS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestAWS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A28826CEE3B539D499831CA6 /* Pods-TestAWS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestAWS.debug.xcconfig"; path = "Target Support Files/Pods-TestAWS/Pods-TestAWS.debug.xcconfig"; sourceTree = "<group>"; };
 		E7019484C2B9B38D906404A1 /* Pods-TestAWS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestAWS.release.xcconfig"; path = "Target Support Files/Pods-TestAWS/Pods-TestAWS.release.xcconfig"; sourceTree = "<group>"; };
@@ -70,8 +72,11 @@
 			isa = PBXGroup;
 			children = (
 				30B8AFC824B3E1710051931F /* Services */,
-				307B5C4024B3BEB000FA5319 /* AppDelegate.swift */,
-				30A0175324B712DD0000B9FF /* MainModule */,
+				30C3017224B7F122001509C7 /* App+Scene Delegates */,
+				307B5C4424B3BEB000FA5319 /* MainViewController.swift */,
+				30C3017024B7E33A001509C7 /* SettingsDataProvider.swift */,
+				30A0175424B714FF0000B9FF /* TeamTableViewCell.swift */,
+				30C3016E24B7A698001509C7 /* VersionViewController.swift */,
 				307B5C4624B3BEB000FA5319 /* Main.storyboard */,
 				307B5C4924B3BEB100FA5319 /* Assets.xcassets */,
 				307B5C4B24B3BEB100FA5319 /* LaunchScreen.storyboard */,
@@ -80,23 +85,21 @@
 			path = TestAWS;
 			sourceTree = "<group>";
 		};
-		30A0175324B712DD0000B9FF /* MainModule */ = {
-			isa = PBXGroup;
-			children = (
-				307B5C4424B3BEB000FA5319 /* MainViewController.swift */,
-				30A0175424B714FF0000B9FF /* TeamTableViewCell.swift */,
-				30C3016E24B7A698001509C7 /* VersionViewController.swift */,
-				307B5C4224B3BEB000FA5319 /* SceneDelegate.swift */,
-			);
-			path = MainModule;
-			sourceTree = "<group>";
-		};
 		30B8AFC824B3E1710051931F /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				30B8AFC924B3E1820051931F /* AWSService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		30C3017224B7F122001509C7 /* App+Scene Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				307B5C4024B3BEB000FA5319 /* AppDelegate.swift */,
+				307B5C4224B3BEB000FA5319 /* SceneDelegate.swift */,
+			);
+			path = "App+Scene Delegates";
 			sourceTree = "<group>";
 		};
 		6701F7921CD8318D56E6DD00 /* Frameworks */ = {
@@ -236,6 +239,7 @@
 				307B5C4324B3BEB000FA5319 /* SceneDelegate.swift in Sources */,
 				30C3016F24B7A698001509C7 /* VersionViewController.swift in Sources */,
 				30A0175524B714FF0000B9FF /* TeamTableViewCell.swift in Sources */,
+				30C3017124B7E33A001509C7 /* SettingsDataProvider.swift in Sources */,
 				30B8AFCA24B3E1820051931F /* AWSService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,7 +10,7 @@ import UIKit
 
 final class VersionViewController: UIViewController {
 
-    typealias Version = MainTableViewController.Props.Team.Version
+    typealias Version = SettingsDataProvider.Props.Team.Version
 
     @IBOutlet private weak var majorVersionLabel: UILabel!
     @IBOutlet private weak var fotaEnabledSwitch: UISwitch!
@@ -38,7 +38,10 @@ final class VersionViewController: UIViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
+
+        versionTextField.resignFirstResponder()
+        binFileTextField.resignFirstResponder()
+        jsonFileTextField.resignFirstResponder()
         onUpdate(majorVersion, isFotaEnabled)
     }
 

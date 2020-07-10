@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  TestAWS
 //
-//  Created by Volodymyr Rykhva on 06.07.2020.
+//  Created by Volodymyr Rykhva on 09.07.2020.
 //  Copyright © 2020 Volodymyr Rykhva. All rights reserved.
 //
 
