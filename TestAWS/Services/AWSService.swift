@@ -56,9 +56,9 @@ final class AWSService {
             let jsonString = String(data: jsonData, encoding: .utf8)
 
             guard let text = jsonString else { return }
-            // MARK - [DEBUG]
-            print(text)
             let filename = getDocumentsDirectory().appendingPathComponent("FotaSettings-Volodymyr-Rykhva.json")
+            // MARK - [DEBUG]
+            print("FILEPATH:", filename)
             transferUtility.uploadFile(filename,
                                        bucket: Const.bucketName,
                                        key: Const.sotaFileName,
